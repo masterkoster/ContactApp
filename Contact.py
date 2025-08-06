@@ -30,7 +30,9 @@ def add_contact():
         print(' Please type "Yes" or "No": \n')
 
 contacts = [
-     {"Name": "Alice", "Number": "5863333333"},
+     {"Name": "Alice", "Number": "9869998881"},
+     {"Name": "John", "Number": "9869998882"},
+     {"Name": "Barb", "Number": "9869998883"},
 
 ]
 
@@ -43,6 +45,24 @@ def showContact():
 
 #contact works as the "database" although it has no real save function after restarting the program
 
+def searchContact():
+    while True:
+        lookupName = input("what is the name of the contact you are searching for?: ")
+        found = False
+        for contact in contacts:
+            if contact["Name"].lower() == lookupName.lower():
+                print(f"{contact['Name']}: {contact['Number']}")
+                found = True
+                break
+
+        if not found:
+            print("❌ Contact not found.")
+            again = input("Try again? (yes/no): ").lower()
+            if again != "yes":
+                break  # only break if they don't want to try again
+        # and outside this if-block:
+        else:
+            break  # found the contact, no need to search again
 
 #Menu inputs
 while True:
@@ -62,23 +82,8 @@ while True:
 
 
     elif choice == "2":
-     while True:
-        lookupName = input("what is the name of the contact you are searching for?: ")
-        found = False
-        for  contact in contacts:
-            if contact["Name"].lower() == lookupName.lower():
-                print(f"{contact['Name']}: {contact['Number']}")
-                found = True
-                break
+        searchContact()
 
-        if not found:
-            print("❌ Contact not found.")
-            again = input("Try again? (yes/no): ").lower()
-            if again != "yes":
-                break  # only break if they don't want to try again
-        # and outside this if-block:
-        else:
-            break  # found the contact, no need to search again
 
 
     elif choice == "3":
