@@ -53,10 +53,18 @@ while True:
         for  contact in contacts:
             if contact["Name"].lower() == lookupName.lower():
                 print(f"{contact['Name']}: {contact['Number']}")
+                found = True
+                break
 
         if not found:
-           print("❌ Contact not found.")
-           print("Try again? (yes/no): ")
+            print("❌ Contact not found.")
+            again = input("Try again? (yes/no): ").lower()
+            if again != "yes":
+                break  # only break if they don't want to try again
+        # and outside this if-block:
+        else:
+            break  # found the contact, no need to search again
+
 
 
 
