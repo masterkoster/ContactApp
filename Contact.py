@@ -23,9 +23,6 @@ def add_contact():
 
     else:
         print(' Please type "Yes" or "No": \n')
-def search_contact():
-    
-
 contacts = []
 
 while True:
@@ -44,9 +41,20 @@ while True:
 
 
     elif choice == "2":
-        print("")
+     while True:
+        lookupName = input("what is the name of the contact you are searching for?: ")
+        found = False
+        for  contact in contacts:
+            if contact["Name"].lower() == lookupName.lower():
+                print(f"{contact['Name']}: {contact['Number']}")
 
-    elif choice == "":
+        if not found:
+           print("❌ Contact not found.")
+
+
+
+
+    elif choice == "3":
         print("")
 
     elif choice == "4":
