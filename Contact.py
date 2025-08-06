@@ -1,3 +1,5 @@
+#this smalll application lets you add, delete, search new contacts.
+#Add_contact asks for their name and number, a confirmation before creation and if not makes the user repeat their input
 def add_contact():
  while True:
     UserName = input("Enter your name: ")
@@ -23,8 +25,11 @@ def add_contact():
 
     else:
         print(' Please type "Yes" or "No": \n')
+
+#contact works as the "database" although has no real save function after restarting the program
 contacts = []
 
+#Menu inputs
 while True:
     print("\n Contact app menu:")
     print("1.Add contacts")
@@ -33,6 +38,7 @@ while True:
     print("4 Show contacts")
     print("5 Exit")
 
+# The options after aaking for an input which will lead to a funcion being executed. Although I suppose I could put it in a def and keep it cleaner..
     choice = input("Choose an input (1-5): ")
 
     if choice == "1":
@@ -50,6 +56,10 @@ while True:
 
         if not found:
            print("❌ Contact not found.")
+           print("Try again? (yes/no): ")
+
+
+
 
 
 
