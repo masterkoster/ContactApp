@@ -97,15 +97,6 @@ while True:
     elif choice == "5":
         break
 
-while True:
-    contact = add_contact()
-    contacts.append(contact)
-
-    cont = input("Add another contact? (yes/no): ").lower()
-
-    if cont != "yes":
+    else:
         break
 
-print("\nAll contacts:")
-for c in contacts:
-    print(f"{c['Name']}: {c['Number']}")
