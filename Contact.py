@@ -14,12 +14,12 @@ def add_contact():
 
     userConfirmation = input( 'Is information correct?, respond with "Yes" or "No: ')
 
-    if userConfirmation.lower() == "yes":
+    if userConfirmation.lower() in ("yes", "y"):
         print(" Thanks! Information saved")
         return contactInfo
 
 
-    elif userConfirmation.lower() == "no":
+    elif userConfirmation.lower() in ("no", "n"):
         print(" Let's try again . \n")
 
 
@@ -32,7 +32,7 @@ contacts = []
 #Menu inputs
 while True:
     print("\n Contact app menu:")
-    print("1.Add contacts")
+    print("1 Add contacts")
     print("2 Search Contacts")
     print("3 Delete contacts")
     print("4 Show contacts")
@@ -76,7 +76,7 @@ while True:
         print("")
 
     elif choice == "4":
-        print("")
+        print(contacts)
 
     elif choice == "5":
         print("")
