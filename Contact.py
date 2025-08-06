@@ -10,6 +10,9 @@ def add_contact():
         "Number": UserNumber
     }
 
+
+
+
     print(contactInfo)
 
     userConfirmation = input( 'Is information correct?, respond with "Yes" or "No: ')
@@ -26,8 +29,20 @@ def add_contact():
     else:
         print(' Please type "Yes" or "No": \n')
 
+contacts = [
+     {"Name": "Alice", "Number": "5863333333"},
+
+]
+
+def showContact():
+    if not contacts:
+        print("📭 Contact list is empty.\n")
+    else:
+        for contact in contacts:
+            print(f"{contact['Name']} {contact['Number']}")
+
 #contact works as the "database" although it has no real save function after restarting the program
-contacts = []
+
 
 #Menu inputs
 while True:
@@ -66,27 +81,16 @@ while True:
             break  # found the contact, no need to search again
 
 
-
-
-
-
-
-
     elif choice == "3":
-        print("")
+        deleteRequest = input("Which contact do you want to delete, write their name").lower()
+
+
 
     elif choice == "4":
-        print(contacts)
+        print(showContact())
 
     elif choice == "5":
-        print("")
-
-
-
-
-
-
-
+        break
 
 while True:
     contact = add_contact()
