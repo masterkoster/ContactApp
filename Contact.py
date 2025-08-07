@@ -1,4 +1,26 @@
 #This small application lets you add, delete, search new contacts.
+
+import json
+
+
+
+def load_contact():
+    global contacts
+    try:
+        with open("contacts.json", "r") as f:
+            contacts = json.load(f)
+    except FileNotFoundError:
+        contacts
+contacts = []
+load_contact()
+
+def save_contact():
+    with open ("contacts.json", "w") as f:
+        json.dump(contacts, f)
+
+
+
+
 #Add_contact asks for their name and number, a confirmation before creation and if not, makes the user repeat their input
 def add_contact():
  while True:
@@ -26,6 +48,7 @@ def add_contact():
 
     if userConfirmation.lower() in ("yes", "y"):
         print(" Thanks! Information saved")
+        save_contact()
         return contactInfo
 
 
@@ -36,17 +59,22 @@ def add_contact():
     else:
         print(' Please type "Yes" or "No": \n')
 
-contacts = [
-     {"Name": "Alice", "Number": "9869998881"},
-     {"Name": "John", "Number": "9869998882"},
-     {"Name": "Barb", "Number": "9869998883"},
 
-]
+
+
+
+
 
 def delete_contact():
     name = input("Enter the name of the contact  you want to delete: ")
     for c in contacts:
-        if c["Name"].lower() = name.lower()
+        if c["Name"].lower() == name.lower():
+            contacts.remove(c)
+            print(f"{name} has been removed")
+            save_contact()
+            return
+    print("Contact not found.")
+save_contact()
 
 def showContact():
     if not contacts:
@@ -91,6 +119,7 @@ while True:
     if choice == "1":
         contact = add_contact()
         contacts.append(contact)
+        save_contact()
 
 
     elif choice == "2":
@@ -99,7 +128,8 @@ while True:
 
 
     elif choice == "3":
-        deleteRequest = input("Which contact do you want to delete, write their name").lower()
+        delete_contact()
+        save_contact()
 
 
 
