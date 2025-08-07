@@ -3,7 +3,7 @@
 import json
 
 
-
+#oads json file from contacts.json and saves it into the same file
 def load_contact():
     global contacts
     try:
@@ -44,6 +44,7 @@ def add_contact():
 
     print(contactInfo)
 
+# if else statement confirmations
     userConfirmation = input( 'Is information correct?, respond with "Yes" or "No: ')
 
     if userConfirmation.lower() in ("yes", "y"):
@@ -64,7 +65,7 @@ def add_contact():
 
 
 
-
+#delete function that asks for an input an then looks through the contact list, then proceeds to delete thn and save it in the json file
 def delete_contact():
     name = input("Enter the name of the contact  you want to delete: ")
     for c in contacts:
@@ -75,7 +76,7 @@ def delete_contact():
             return
     print("Contact not found.")
 save_contact()
-
+#Searches for the name saved in input
 def showContact():
     if not contacts:
         print("📭 Contact list is empty.\n")
