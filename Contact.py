@@ -10,6 +10,13 @@ def add_contact():
         "Number": UserNumber
     }
 
+    if not UserName.isalpha():
+        print("Please use only letters in the name: ")
+        continue
+
+    if not UserNumber.isdigit():
+        print("Please use only numbers for the phone number: ")
+        continue
 
 
 
@@ -35,6 +42,11 @@ contacts = [
      {"Name": "Barb", "Number": "9869998883"},
 
 ]
+
+def delete_contact():
+    name = input("Enter the name of the contact  you want to delete: ")
+    for c in contacts:
+        if c["Name"].lower() = name.lower()
 
 def showContact():
     if not contacts:
@@ -93,6 +105,7 @@ while True:
 
     elif choice == "4":
         print(showContact())
+
 
     elif choice == "5":
         break
