@@ -28,6 +28,10 @@ def add_contact():
         UserName = input("Enter your name: ")
         UserNumber = input("Enter your Number: ")
 
+        #Removes spacing before and after, capitalizes the first letter
+        UserName = UserName.strip().title()
+        UserNumber = UserNumber.strip().title()
+
         contactInfo = {
             "Name": UserName,
             "Number": UserNumber
@@ -49,7 +53,7 @@ def add_contact():
         if userConfirmation.lower() in ("yes", "y"):
             print(" Thanks! Information saved")
             save_contact()
-            return
+            return contactInfo
 
 
         elif userConfirmation.lower() in ("no", "n"):
@@ -146,8 +150,9 @@ while True:
 
     if choice == "1":
         contact = add_contact()
-        contacts.append(contact)
-        save_contact()
+        if contact:
+            contacts.append(contact)
+            save_contact()
 
     elif choice == "2":
         searchContact()
